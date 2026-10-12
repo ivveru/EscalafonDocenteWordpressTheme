@@ -1,0 +1,433 @@
+@font-face {
+    font-family: 'Lato Hairline';
+    src: url('fonts/Lato-Hairline.eot');
+    src: url('fonts/Lato-Hairline.eot?#iefix') format('embedded-opentype'),
+        url('fonts/Lato-Hairline.woff2') format('woff2'),
+        url('fonts/Lato-Hairline.woff') format('woff'),
+        url('fonts/Lato-Hairline.ttf') format('truetype'),
+        url('fonts/Lato-Hairline.svg#Lato-Hairline') format('svg');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Lato';
+    src: url('fonts/Lato-BoldItalic.eot');
+    src: url('fonts/Lato-BoldItalic.eot?#iefix') format('embedded-opentype'),
+        url('fonts/Lato-BoldItalic.woff2') format('woff2'),
+        url('fonts/Lato-BoldItalic.woff') format('woff'),
+        url('fonts/Lato-BoldItalic.ttf') format('truetype'),
+        url('fonts/Lato-BoldItalic.svg#Lato-BoldItalic') format('svg');
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Lato';
+    src: url('fonts/Lato-Black.eot');
+    src: url('fonts/Lato-Black.eot?#iefix') format('embedded-opentype'),
+        url('fonts/Lato-Black.woff2') format('woff2'),
+        url('fonts/Lato-Black.woff') format('woff'),
+        url('fonts/Lato-Black.ttf') format('truetype'),
+        url('fonts/Lato-Black.svg#Lato-Black') format('svg');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Lato';
+    src: url('fonts/Lato-Bold.eot');
+    src: url('fonts/Lato-Bold.eot?#iefix') format('embedded-opentype'),
+        url('fonts/Lato-Bold.woff2') format('woff2'),
+        url('fonts/Lato-Bold.woff') format('woff'),
+        url('fonts/Lato-Bold.ttf') format('truetype'),
+        url('fonts/Lato-Bold.svg#Lato-Bold') format('svg');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Lato';
+    src: url('fonts/Lato-BlackItalic.eot');
+    src: url('fonts/Lato-BlackItalic.eot?#iefix') format('embedded-opentype'),
+        url('fonts/Lato-BlackItalic.woff2') format('woff2'),
+        url('fonts/Lato-BlackItalic.woff') format('woff'),
+        url('fonts/Lato-BlackItalic.ttf') format('truetype'),
+        url('fonts/Lato-BlackItalic.svg#Lato-BlackItalic') format('svg');
+    font-weight: 900;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Lato Hairline';
+    src: url('fonts/Lato-HairlineItalic.eot');
+    src: url('fonts/Lato-HairlineItalic.eot?#iefix') format('embedded-opentype'),
+        url('fonts/Lato-HairlineItalic.woff2') format('woff2'),
+        url('fonts/Lato-HairlineItalic.woff') format('woff'),
+        url('fonts/Lato-HairlineItalic.ttf') format('truetype'),
+        url('fonts/Lato-HairlineItalic.svg#Lato-HairlineItalic') format('svg');
+    font-weight: 300;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Lato';
+    src: url('fonts/Lato-LightItalic.eot');
+    src: url('fonts/Lato-LightItalic.eot?#iefix') format('embedded-opentype'),
+        url('fonts/Lato-LightItalic.woff2') format('woff2'),
+        url('fonts/Lato-LightItalic.woff') format('woff'),
+        url('fonts/Lato-LightItalic.ttf') format('truetype'),
+        url('fonts/Lato-LightItalic.svg#Lato-LightItalic') format('svg');
+    font-weight: 300;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Lato';
+    src: url('fonts/Lato-Italic.eot');
+    src: url('fonts/Lato-Italic.eot?#iefix') format('embedded-opentype'),
+        url('fonts/Lato-Italic.woff2') format('woff2'),
+        url('fonts/Lato-Italic.woff') format('woff'),
+        url('fonts/Lato-Italic.ttf') format('truetype'),
+        url('fonts/Lato-Italic.svg#Lato-Italic') format('svg');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Lato';
+    src: url('fonts/Lato-Light.eot');
+    src: url('fonts/Lato-Light.eot?#iefix') format('embedded-opentype'),
+        url('fonts/Lato-Light.woff2') format('woff2'),
+        url('fonts/Lato-Light.woff') format('woff'),
+        url('fonts/Lato-Light.ttf') format('truetype'),
+        url('fonts/Lato-Light.svg#Lato-Light') format('svg');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Lato';
+    src: url('fonts/Lato-Regular.eot');
+    src: url('fonts/Lato-Regular.eot?#iefix') format('embedded-opentype'),
+        url('fonts/Lato-Regular.woff2') format('woff2'),
+        url('fonts/Lato-Regular.woff') format('woff'),
+        url('fonts/Lato-Regular.ttf') format('truetype'),
+        url('fonts/Lato-Regular.svg#Lato-Regular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+
+
+
+html, body, div, span, applet, object,
+iframe, h1, h2, h3, h4, h5, h6, p, blockquote,
+pre, a, abbr, acronym, address, big, cite,
+code, del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var, b,
+u, i, center, dl, dt, dd, ol, ul, li, fieldset,
+form, label, legend, table, caption, tbody,
+tfoot, thead, tr, th, td, article, aside,
+canvas, details, embed, figure, figcaption,
+footer, header, hgroup, menu, nav, output, ruby,
+section, summary, time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	font-family: 'Lato';
+	font-style: normal;
+	font-size: 16px;
+    font-weight: normal;
+	vertical-align: baseline;
+}
+
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+
+body
+{
+	background-color: white;
+}
+
+#header
+{
+	background-color: #DC0C1D;
+	padding: 1em 2em;
+}
+
+#header .logo_container
+{
+	height: 20vh;
+}
+
+#header .logo_container img
+{
+	height: 100%;
+}
+
+#menu
+{
+	background-color: black;
+    color: white;
+	display: flex;
+	padding: 1em;
+}
+
+#menu .menu_item
+{
+	border-right: 1px solid white;
+	padding: 0 1em;
+}
+
+#menu .menu_item:first-child
+{
+	border-left: 1px solid white;
+}
+
+#menu .menu_item:last-child
+{
+	border-right: unset;
+	margin-left: auto;
+	float: right;
+}
+
+#menu .menu_item a
+{
+	color: white;
+	text-decoration: none;
+}
+
+#content
+{
+	padding: 2em;
+}
+
+#login
+{
+	margin: 5vh auto;
+	text-align: center;
+}
+
+h1
+{
+	font-size: 2em;
+	margin-bottom: 1em;
+}
+
+h2
+{
+	font-size: 1.5em;
+	margin-bottom: 1em;
+}
+
+.input
+{
+	padding: 0 0em 0.5em;
+}
+
+.input label,
+.input input
+{
+	display: block;
+}
+
+.input label
+{
+	font-weight: bold;
+}
+
+.input input,
+.input select
+{
+	border: 1px solid black;
+    border-radius: 5px;
+    box-sizing:border-box;
+    font-size: 16px;
+	margin: 0.25em auto;
+	padding: 5px;
+	text-align: center;
+}
+
+.input.left input,
+.input.left select
+{
+	margin: 0.25em 0px;
+	text-align: left;
+	width: 100%;
+}
+
+.input textarea
+{
+	font-family: 'Lato';
+	font-size: 16px;
+	padding: 10px;
+}
+
+.input button,
+.input a.button
+{
+    background-color: #dc0c1d;
+    border: 1px solid white;
+    border-radius: 5px;
+    color: white;
+    display: inline-block;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    min-width: 150px;
+    padding: 10px 2em;
+    text-decoration: none;
+}
+
+.input a.button.confirm
+{
+    background-color: #67ce33;
+}
+
+.message
+{
+	background-color: rgb(154 205 50 / 0.8);
+	color: white;
+    display: block;
+    margin-bottom: 10px;
+	padding: 0.5em;
+    text-align: center;
+	width: 100%;
+}
+
+.message.error
+{
+	background-color: tomato;
+}
+
+.table_custom {
+    border: 2px solid #dc0c1d;
+    background-color: #EEE7DB;
+    width: 100%;
+    text-align: left;
+    border-collapse: collapse;
+}
+.table_custom td, .table_custom th {
+    border: 1px solid #AAAAAA;
+    padding: 0.5em;
+}
+.table_custom tbody td {
+    font-size: 16px;
+}
+.table_custom tr:nth-child(even) {
+    background: #F5C8BF;
+}
+.table_custom thead {
+    background: #DC0C1D;
+}
+.table_custom thead th {
+    font-size: 19px;
+    font-weight: bold;
+    color: #FFFFFF;
+    text-align: left;
+    border-left: 2px solid #DC0C1D;
+}
+.table_custom thead th:first-child {
+    border-left: none;
+}
+
+.table_custom span,
+.table_custom span a
+{
+    display: inline-block;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+.table_custom span
+{
+    margin-left: 5px;
+}
+
+.document-container
+{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+}
+
+.document-container .document-details
+{
+    padding: 1em;
+}
+
+.document-container .document-details.data
+{
+    grid-column: 1 ;
+}
+
+.document-container .document-details.media
+{
+    grid-column: 2 / 4;
+}
+
+.document-container .document-details.media img.media_rendered
+{
+    width: 100%;
+}
+
+.document-container .document-details.media object.media_rendered
+{
+    height: 60vh;
+    width: 100%;
+}
+
+.search_field
+{
+    border-radius: 5px;
+    margin: 5px 0px;
+    padding: 10px;
+    width: 25vw;
+}
+
+/* Enhanced Login Security Styles */
+.error-message {
+    background: #ff6b6b;
+    color: white;
+    padding: 12px 15px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+    font-weight: 500;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Admin interface styles for locked users */
+.locked-indicator {
+    color: #d63638;
+    font-weight: bold;
+}
+
+/* Security status column styling */
+.column-lockout_status {
+    width: 120px;
+}
+
+/* Unlock action link styling */
+.unlock-action {
+    color: #d63638 !important;
+    font-weight: 500;
+}
+
+.unlock-action:hover {
+    color: #a02626 !important;
+}

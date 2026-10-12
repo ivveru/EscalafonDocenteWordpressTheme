@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manual del Sistema - Tema Bellas Artes</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 30px;
+            padding: 20px;
+        }
+
+        .sidebar {
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            height: fit-content;
+            position: sticky;
+            top: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .sidebar h3 {
+            color: #0073aa;
+            margin-bottom: 15px;
+            font-size: 1.1em;
+        }
+
+        .sidebar ul {
+            list-style: none;
+        }
+
+        .sidebar li {
+            margin-bottom: 8px;
+        }
+
+        .sidebar a {
+            color: #666;
+            text-decoration: none;
+            padding: 5px 0;
+            display: block;
+            border-left: 3px solid transparent;
+            padding-left: 10px;
+            transition: all 0.2s ease;
+        }
+
+        .sidebar a:hover {
+            color: #0073aa;
+            border-left-color: #0073aa;
+            background-color: #f0f8ff;
+            padding-left: 15px;
+        }
+
+        .main-content {
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 40px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #0073aa;
+        }
+
+        .header h1 {
+            color: #0073aa;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .header .subtitle {
+            color: #666;
+            font-size: 1.2em;
+            margin-bottom: 5px;
+        }
+
+        .header .version {
+            color: #46b450;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+
+        h2 {
+            color: #0073aa;
+            font-size: 1.8em;
+            margin: 30px 0 20px 0;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+        }
+
+        h3 {
+            color: #333;
+            font-size: 1.4em;
+            margin: 25px 0 15px 0;
+        }
+
+        h4 {
+            color: #666;
+            font-size: 1.2em;
+            margin: 20px 0 10px 0;
+        }
+
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        ul, ol {
+            margin: 15px 0 15px 30px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        .feature-list {
+            background: #f8f9fa;
+            border-left: 4px solid #0073aa;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .feature-list h4 {
+            color: #0073aa;
+            margin-bottom: 15px;
+        }
+
+        .security-features {
+            background: #fff3cd;
+            border: 1px solid #ffb900;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .security-features h4 {
+            color: #856404;
+            margin-bottom: 15px;
+        }
+
+        .success-features {
+            background: #d4edda;
+            border: 1px solid #46b450;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .success-features h4 {
+            color: #155724;
+            margin-bottom: 15px;
+        }
+
+        .code-block {
+            background: #f8f9fa;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+            font-family: 'Courier New', monospace;
+            overflow-x: auto;
+        }
+
+        .code-block code {
+            color: #0073aa;
+            font-weight: bold;
+        }
+
+        .role-card {
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 15px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .role-card h4 {
+            color: #0073aa;
+            margin-bottom: 10px;
+        }
+
+        .role-card .role-description {
+            color: #666;
+            font-style: italic;
+            margin-bottom: 15px;
+        }
+
+        .role-card ul {
+            margin-left: 20px;
+        }
+
+        .status-badge {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.9em;
+            font-weight: bold;
+            margin: 0 5px;
+        }
+
+        .status-pending {
+            background: #fff3cd;
+            color: #856404;
+        }
+
+        .status-valid {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .status-invalid {
+            background: #f8d7da;
+            color: #721c24;
+        }
+
+        .icon {
+            margin-right: 8px;
+        }
+
+        .toc-section {
+            margin-bottom: 20px;
+        }
+
+        .toc-section h4 {
+            color: #0073aa;
+            margin-bottom: 10px;
+            font-size: 1em;
+        }
+
+        .toc-section ul {
+            margin-left: 15px;
+        }
+
+        .toc-section a {
+            color: #666;
+            text-decoration: none;
+            font-size: 0.9em;
+        }
+
+        .toc-section a:hover {
+            color: #0073aa;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+                gap: 20px;
+                padding: 10px;
+            }
+
+            .sidebar {
+                position: static;
+                order: 2;
+            }
+
+            .main-content {
+                order: 1;
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 2em;
+            }
+        }
+
+        @media print {
+            .sidebar {
+                display: none;
+            }
+            
+            .container {
+                grid-template-columns: 1fr;
+            }
+            
+            .main-content {
+                box-shadow: none;
+                border: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav class="sidebar">
+            <h3>📖 Índice de Contenidos</h3>
+            
+            <div class="toc-section">
+                <h4>Información General</h4>
+                <ul>
+                    <li><a href="#descripcion">Descripción</a></li>
+                    <li><a href="#instalacion">Instalación</a></li>
+                    <li><a href="#caracteristicas">Características del Sistema</a></li>
+                </ul>
+            </div>
+
+            <div class="toc-section">
+                <h4>Sistemas Principales</h4>
+                <ul>
+                    <li><a href="#autenticacion">Sistema de Autenticación</a></li>
+                    <li><a href="#documentos">Gestión de Documentos</a></li>
+                    <li><a href="#roles">Sistema de Roles</a></li>
+                </ul>
+            </div>
+
+            <div class="toc-section">
+                <h4>Interfaces de Usuario</h4>
+                <ul>
+                    <li><a href="#interfaz-profesores">Para Profesores</a></li>
+                    <li><a href="#interfaz-coordinadores">Para Coordinadores</a></li>
+                    <li><a href="#interfaz-administradores">Para Administradores</a></li>
+                </ul>
+            </div>
+
+            <div class="toc-section">
+                <h4>Guías y Soporte</h4>
+                <ul>
+                    <li><a href="#guia-uso">Guía de Uso</a></li>
+                    <li><a href="#funciones-prueba">Funciones de Prueba</a></li>
+                    <li><a href="#solucion-problemas">Solución de Problemas</a></li>
+                    <li><a href="#soporte">Soporte</a></li>
+                </ul>
+            </div>
+
+            <div class="toc-section">
+                <h4>Información Técnica</h4>
+                <ul>
+                    <li><a href="#seguridad">Seguridad y Cumplimiento</a></li>
+                    <li><a href="#cambios">Registro de Cambios</a></li>
+                    <li><a href="#creditos">Créditos</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <main class="main-content">
+            <div class="header">
+                <h1>Tema Bellas Artes</h1>
+                <div class="subtitle">Sistema de Gestión de Escalafón</div>
+                <div class="version">Versión 1.2</div>
+            </div>
+
+            <section id="descripcion">
+                <h2>Descripción</h2>
+                <p>Sistema de Gestión de Escalafón - Tema personalizado de WordPress para la gestión integral de documentos académicos y portfolios de la facultad en Bellas Artes Institución Universitaria del Valle.</p>
+                
+                <p>Este tema proporciona un sistema completo de gestión académica con las siguientes características principales:</p>
+            </section>
+
+            <section id="autenticacion">
+                <h2>Sistema de Autenticación Mejorado</h2>
+                <div class="security-features">
+                    <h4>🔒 Características de Seguridad</h4>
+                    <ul>
+                        <li><strong>Protección CSRF</strong> - Protección contra ataques de falsificación de solicitud entre sitios</li>
+                        <li><strong>Limitación de Intentos</strong> - 5 intentos por IP cada 15 minutos</li>
+                        <li><strong>Bloqueo de Cuenta</strong> - Bloqueo automático después de 3 intentos fallidos</li>
+                        <li><strong>Advertencias Progresivas</strong> - "Quedan 2 intentos", "Queda 1 intento"</li>
+                        <li><strong>Sin Sesiones Persistentes</strong> - Seguro para computadoras públicas universitarias</li>
+                        <li><strong>Mensajes Genéricos</strong> - No revela existencia de usuarios</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="documentos">
+                <h2>Sistema de Gestión de Documentos</h2>
+                <div class="feature-list">
+                    <h4>📄 Tipos de Documentos Académicos</h4>
+                    <ul>
+                        <li><strong>Estudios de Pre-Grado</strong> - Títulos de licenciatura</li>
+                        <li><strong>Estudios de Post-Grado</strong> - Maestrías, doctorados, especializaciones</li>
+                        <li><strong>Publicaciones Académicas</strong> - Artículos académicos, libros, investigaciones</li>
+                        <li><strong>Cursos de Actualización</strong> - Cursos, seminarios, talleres</li>
+                        <li><strong>Creación Artística</strong> - Obras, presentaciones, exposiciones</li>
+                        <li><strong>Asistencia a Eventos</strong> - Congresos, simposios, eventos académicos</li>
+                    </ul>
+                </div>
+
+                <div class="feature-list">
+                    <h4>📋 Características Técnicas</h4>
+                    <ul>
+                        <li><strong>Formatos Soportados:</strong> PDF, JPEG, PNG</li>
+                        <li><strong>Visualización Integrada:</strong> Previsualizador de PDF y visor de imágenes</li>
+                        <li><strong>Estados de Validación:</strong> 
+                            <span class="status-badge status-pending">Pendiente</span>
+                            <span class="status-badge status-valid">Válido</span>
+                            <span class="status-badge status-invalid">Inválido</span>
+                        </li>
+                        <li><strong>Carga Local o URL:</strong> Soporte para archivos locales o enlaces externos</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="roles">
+                <h2>Sistema de Roles Universitarios</h2>
+                
+                <div class="role-card">
+                    <h4>1. Administrador del Sistema (system_admin)</h4>
+                    <div class="role-description">Acceso completo al sistema y funciones administrativas</div>
+                    <ul>
+                        <li>Gestión de usuarios y roles</li>
+                        <li>Supervisión de seguridad</li>
+                        <li>Funciones de prueba y desarrollo</li>
+                        <li><strong>Menú:</strong> Profesores + Administración</li>
+                    </ul>
+                </div>
+
+                <div class="role-card">
+                    <h4>2. Coordinador Académico (academic_coordinator)</h4>
+                    <div class="role-description">Supervisión de la facultad y validación de documentos</div>
+                    <ul>
+                        <li>Validación de documentos académicos</li>
+                        <li>Desbloqueo de cuentas de usuarios</li>
+                        <li>Revisión de portfolios académicos</li>
+                        <li><strong>Menú:</strong> Profesores</li>
+                    </ul>
+                </div>
+
+                <div class="role-card">
+                    <h4>3. Facultad/Profesor (faculty)</h4>
+                    <div class="role-description">Gestión de documentos personales y perfil académico</div>
+                    <ul>
+                        <li>Gestión de documentos personales</li>
+                        <li>Actualización de perfil académico</li>
+                        <li>Carga de documentos académicos</li>
+                        <li>Seguimiento de estado de validación</li>
+                        <li><strong>Menú:</strong> Mi Perfil + Mis Documentos</li>
+                    </ul>
+                </div>
+
+                <div class="role-card">
+                    <h4>4. Facultad Invitada (guest_faculty)</h4>
+                    <div class="role-description">Acceso limitado para profesores invitados</div>
+                    <ul>
+                        <li>Acceso limitado a documentos</li>
+                        <li>Gestión básica de perfil</li>
+                        <li>Acceso temporal al sistema</li>
+                        <li><strong>Menú:</strong> Mi Perfil + Mis Documentos</li>
+                    </ul>
+                </div>
+
+                <div class="role-card">
+                    <h4>5. Estudiante/Visitante (subscriber)</h4>
+                    <div class="role-description">Acceso de solo lectura</div>
+                    <ul>
+                        <li>Solo lectura</li>
+                        <li>Sin acceso al sistema</li>
+                        <li>Información pública únicamente</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="instalacion">
+                <h2>Instalación</h2>
+                
+                <h3>Requisitos del Sistema</h3>
+                <ul>
+                    <li>WordPress 4.7 o superior</li>
+                    <li>PHP 7.0 o superior (recomendado PHP 7.4+)</li>
+                    <li>MySQL 5.6 o superior</li>
+                    <li>Servidor web (Apache/Nginx)</li>
+                    <li>Memoria PHP mínima: 128MB</li>
+                </ul>
+
+                <h3>Pasos de Instalación</h3>
+                <ol>
+                    <li><strong>Subir el Tema:</strong><br>
+                        Copiar la carpeta del tema a: <code>/wp-content/themes/bellasartes</code>
+                    </li>
+                    <li><strong>Activar el Tema:</strong><br>
+                        WordPress Admin → Apariencia → Temas → Activar "Bellas Artes Theme"
+                    </li>
+                    <li><strong>Configuración Automática:</strong>
+                        <ul>
+                            <li>El tema crea automáticamente todas las páginas necesarias</li>
+                            <li>Los roles universitarios se configuran automáticamente</li>
+                            <li>Las páginas del sistema se generan con shortcodes</li>
+                        </ul>
+                    </li>
+                    <li><strong>Crear Usuarios:</strong><br>
+                        WordPress Admin → Usuarios → Añadir Nuevo<br>
+                        Asignar rol apropiado: System Administrator, Academic Coordinator, o Faculty/Professor
+                    </li>
+                </ol>
+            </section>
+
+            <section id="caracteristicas">
+                <h2>Características del Sistema</h2>
+                
+                <h3>Seguridad Empresarial</h3>
+                <div class="security-features">
+                    <h4>Protección de Inicio de Sesión</h4>
+                    <ul>
+                        <li>Protección CSRF mediante WordPress nonces</li>
+                        <li>Limitación de tasa por IP - 5 intentos cada 15 minutos</li>
+                        <li>Bloqueo de cuenta después de 3 intentos fallidos</li>
+                        <li>Advertencias progresivas al usuario</li>
+                        <li>Registro de actividad de intentos fallidos</li>
+                        <li>Desbloqueo administrativo con un clic</li>
+                    </ul>
+                </div>
+
+                <div class="success-features">
+                    <h4>✓ Características de Seguridad</h4>
+                    <ul>
+                        <li>Sin dependencias de plugins externos</li>
+                        <li>Usa solo funcionalidad del núcleo de WordPress</li>
+                        <li>Validación de entrada mejorada</li>
+                        <li>Mensajes de error genéricos</li>
+                        <li>Registro de actividad de inicio de sesión</li>
+                        <li>Gestión segura de sesiones</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="interfaz-profesores">
+                <h2>Interfaz de Usuario</h2>
+                
+                <h3>Para Profesores</h3>
+                <div class="feature-list">
+                    <ul>
+                        <li><strong>Mi Perfil</strong> - Actualizar información personal y académica</li>
+                        <li><strong>Mis Documentos</strong> - Ver, crear, editar documentos propios</li>
+                        <li><strong>Crear Documento</strong> - Formulario de carga con metadatos</li>
+                        <li><strong>Ver Documento</strong> - Visualización con estado de validación</li>
+                        <li><strong>Eliminar Documento</strong> - Solo documentos no validados</li>
+                    </ul>
+                </div>
+
+                <h3>Para Coordinadores</h3>
+                <div class="feature-list">
+                    <ul>
+                        <li><strong>Profesores</strong> - Lista de toda la facultad</li>
+                        <li><strong>Ver Profesor</strong> - Perfil completo y documentos del profesor</li>
+                        <li><strong>Validar Documento</strong> - Aprobar o rechazar con un clic</li>
+                        <li><strong>Desbloquear Cuentas</strong> - Restaurar acceso a usuarios bloqueados</li>
+                    </ul>
+                </div>
+
+                <h3>Para Administradores</h3>
+                <div class="feature-list">
+                    <ul>
+                        <li><strong>Panel de Administración</strong> - Acceso completo a WordPress</li>
+                        <li><strong>Gestión de Usuarios</strong> - Crear, editar, eliminar usuarios</li>
+                        <li><strong>Supervisión de Seguridad</strong> - Widget con estadísticas</li>
+                        <li><strong>Funciones de Prueba</strong> - Crear usuarios de prueba</li>
+                        <li><strong>Gestión de Roles</strong> - Asignar roles universitarios</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="funciones-prueba">
+                <h2>Funciones de Prueba</h2>
+                
+                <h3>Crear Usuario de Prueba</h3>
+                <div class="code-block">
+                    <code>[create_test_user username="testprof" email="test@universidad.edu" password="pass123" role="faculty"]</code>
+                </div>
+                
+                <p><strong>Parámetros:</strong></p>
+                <ul>
+                    <li><strong>username</strong> - Nombre de usuario (por defecto: testuser)</li>
+                    <li><strong>email</strong> - Correo electrónico (por defecto: test@example.com)</li>
+                    <li><strong>password</strong> - Contraseña (por defecto: testpass123)</li>
+                    <li><strong>role</strong> - Rol universitario (por defecto: faculty)</li>
+                </ul>
+
+                <h3>Simular Intentos Fallidos</h3>
+                <div class="code-block">
+                    <code>[simulate_attempts]</code>
+                </div>
+                <p>Simula 3 intentos fallidos de inicio de sesión para probar el bloqueo de cuenta.</p>
+
+                <h3>Asignar Rol Universitario</h3>
+                <div class="code-block">
+                    <code>[assign_university_role user_id=123 new_role=faculty]</code>
+                </div>
+            </section>
+
+            <section id="guia-uso">
+                <h2>Guía de Uso</h2>
+                
+                <h3>Para Profesores</h3>
+                
+                <h4>Primer Inicio de Sesión</h4>
+                <ol>
+                    <li>Navegar a la página principal del sitio</li>
+                    <li>Ingresar credenciales proporcionadas por el administrador</li>
+                    <li>Completar información de perfil en "Mi Perfil"</li>
+                    <li>Comenzar a cargar documentos académicos</li>
+                </ol>
+
+                <h4>Cargar un Documento</h4>
+                <ol>
+                    <li>Ir a "Mis Documentos"</li>
+                    <li>Clic en "Crear nuevo documento"</li>
+                    <li>Seleccionar tipo de documento</li>
+                    <li>Ingresar nombre y año</li>
+                    <li>Subir archivo (PDF, JPEG, PNG) o proporcionar URL</li>
+                    <li>Enviar formulario</li>
+                    <li>Documento aparece como "Pendiente de Validación"</li>
+                </ol>
+
+                <h4>Gestionar Documentos</h4>
+                <ul>
+                    <li><strong>Ver:</strong> Clic en "Ver Detalle" para visualizar</li>
+                    <li><strong>Eliminar:</strong> Solo disponible para documentos no validados</li>
+                    <li><strong>Estado:</strong> Monitorear estado de validación</li>
+                </ul>
+
+                <h3>Para Coordinadores Académicos</h3>
+                
+                <h4>Revisar Profesores</h4>
+                <ol>
+                    <li>Ir a menú "Profesores"</li>
+                    <li>Ver lista de toda la facultad</li>
+                    <li>Usar filtros para buscar profesores específicos</li>
+                    <li>Clic en "Ver Profesor" para ver perfil completo</li>
+                </ol>
+
+                <h4>Validar Documentos</h4>
+                <ol>
+                    <li>Seleccionar profesor de la lista</li>
+                    <li>Ver documentos pendientes de validación</li>
+                    <li>Clic en "Ver Detalle" del documento</li>
+                    <li>Revisar contenido del documento</li>
+                    <li>Clic en "Documento Válido" o "Documento Inválido"</li>
+                    <li>Estado actualizado automáticamente</li>
+                </ol>
+
+                <h4>Desbloquear Cuentas</h4>
+                <ol>
+                    <li>Ir a WordPress Admin → Usuarios</li>
+                    <li>Filtrar por "Cuentas Bloqueadas"</li>
+                    <li>Clic en "Unlock Account" para cada usuario</li>
+                    <li>O usar acción masiva para múltiples usuarios</li>
+                </ol>
+
+                <h3>Para Administradores del Sistema</h3>
+                
+                <h4>Crear Nuevos Usuarios</h4>
+                <ol>
+                    <li>WordPress Admin → Usuarios → Añadir Nuevo</li>
+                    <li>Completar información básica</li>
+                    <li>Asignar rol universitario apropiado:
+                        <ul>
+                            <li>System Administrator</li>
+                            <li>Academic Coordinator</li>
+                            <li>Faculty/Professor</li>
+                            <li>Guest Faculty</li>
+                        </ul>
+                    </li>
+                    <li>Enviar credenciales al usuario</li>
+                </ol>
+
+                <h4>Monitorear Seguridad</h4>
+                <ul>
+                    <li>Revisar widget de seguridad en panel</li>
+                    <li>Ver cuentas bloqueadas</li>
+                    <li>Analizar intentos fallidos</li>
+                    <li>Desbloquear cuentas según necesidad</li>
+                </ul>
+
+                <h4>Gestión de Roles</h4>
+                <ul>
+                    <li>Cambiar roles según evolución de responsabilidades</li>
+                    <li>Asignar múltiples coordinadores académicos</li>
+                    <li>Gestionar acceso de facultad invitada</li>
+                </ul>
+            </section>
+
+            <section id="seguridad">
+                <h2>Seguridad y Cumplimiento</h2>
+                
+                <h3>Diseño para Entorno Universitario</h3>
+                <div class="success-features">
+                    <ul>
+                        <li>✓ Seguro para computadoras públicas</li>
+                        <li>✓ Sin sesiones persistentes (se cierra al cerrar navegador)</li>
+                        <li>✓ Protección contra ataques de fuerza bruta</li>
+                        <li>✓ Registro de auditoría de actividades</li>
+                        <li>✓ Control de acceso basado en roles</li>
+                        <li>✓ Protección de datos sensibles</li>
+                    </ul>
+                </div>
+
+                <h3>Mejores Prácticas Implementadas</h3>
+                <ul>
+                    <li>Validación de entrada en todos los formularios</li>
+                    <li>Sanitización de salida en todas las vistas</li>
+                    <li>Nonces de WordPress para protección CSRF</li>
+                    <li>Uso de funciones preparadas para consultas SQL</li>
+                    <li>Validación de tipos de archivo MIME</li>
+                    <li>Límites de tamaño de archivo configurables</li>
+                </ul>
+            </section>
+
+            <section id="solucion-problemas">
+                <h2>Solución de Problemas</h2>
+                
+                <h3>Cuenta Bloqueada</h3>
+                <p><strong>Problema:</strong> "Cuenta bloqueada. Contacte al administrador"</p>
+                <p><strong>Solución:</strong> Contactar a un Coordinador Académico o Administrador del Sistema para desbloquear la cuenta.</p>
+
+                <h3>Demasiados Intentos</h3>
+                <p><strong>Problema:</strong> "Demasiados intentos. Intente nuevamente en 15 minutos"</p>
+                <p><strong>Solución:</strong> Esperar 15 minutos antes de intentar nuevamente, o cambiar a una red diferente.</p>
+
+                <h3>Error al Subir Documento</h3>
+                <p><strong>Problema:</strong> "El archivo supera el tamaño máximo"</p>
+                <p><strong>Solución:</strong> Reducir el tamaño del archivo o contactar al administrador para aumentar el límite.</p>
+
+                <h3>Páginas No Aparecen</h3>
+                <p><strong>Problema:</strong> Las páginas del sistema no se crearon automáticamente</p>
+                <p><strong>Solución:</strong> Desactivar y reactivar el tema para regenerar las páginas requeridas.</p>
+            </section>
+
+            <section id="soporte">
+                <h2>Soporte</h2>
+                
+                <p>Para soporte técnico, solicitudes de personalización o problemas del sistema:</p>
+                
+                <div class="feature-list">
+                    <h4>Contactar</h4>
+                    <ul>
+                        <li><strong>Departamento:</strong> TI - Bellas Artes Institución Universitaria del Valle</li>
+                        <li><strong>Email:</strong> soporte@bellasartes.edu.co</li>
+                        <li><strong>Tel:</strong> [Número de contacto]</li>
+                    </ul>
+                </div>
+
+                <div class="feature-list">
+                    <h4>Documentación Adicional</h4>
+                    <ul>
+                        <li>Manual de usuario disponible internamente</li>
+                        <li>Videos tutoriales en intranet universitaria</li>
+                        <li>Sesiones de capacitación disponibles bajo solicitud</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="cambios">
+                <h2>Registro de Cambios</h2>
+                
+                <h3>Versión 1.2</h3>
+                <div class="success-features">
+                    <ul>
+                        <li>✨ Sistema de seguridad de inicio de sesión mejorado</li>
+                        <li>✨ Roles universitarios personalizados</li>
+                        <li>✨ Bloqueo de cuenta después de intentos fallidos</li>
+                        <li>✨ Advertencias progresivas de seguridad</li>
+                        <li>✨ Interfaz de administración mejorada</li>
+                        <li>✨ Widget de supervisión de seguridad</li>
+                        <li>✨ Filtros de rol universitario</li>
+                        <li>✨ Funciones de prueba para administradores</li>
+                        <li>🔧 Protección CSRF mejorada</li>
+                        <li>🔧 Limitación de tasa por IP</li>
+                        <li>🔧 Registro de actividad de inicio de sesión</li>
+                    </ul>
+                </div>
+
+                <h3>Versión 1.0</h3>
+                <div class="success-features">
+                    <ul>
+                        <li>🎉 Lanzamiento inicial</li>
+                        <li>Sistema de gestión de documentos de facultad</li>
+                        <li>Autenticación de usuarios y perfiles</li>
+                        <li>Flujo de trabajo de carga y validación de documentos</li>
+                        <li>Tema personalizado basado en estándares de WordPress</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="creditos">
+                <h2>Créditos</h2>
+                
+                <div class="feature-list">
+                    <h4>Desarrollado para</h4>
+                    <p>Bellas Artes Institución Universitaria del Valle</p>
+                </div>
+
+                <div class="feature-list">
+                    <h4>Framework</h4>
+                    <p>WordPress - Sistema de gestión de contenido</p>
+                </div>
+
+                <div class="feature-list">
+                    <h4>Características Clave</h4>
+                    <ul>
+                        <li>Sistema sin dependencias de plugins</li>
+                        <li>Usa solo funcionalidad del núcleo de WordPress</li>
+                        <li>Seguridad de nivel empresarial</li>
+                        <li>Diseñado específicamente para entornos universitarios</li>
+                    </ul>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Highlight current section in navigation
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.sidebar a[href^="#"]');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
