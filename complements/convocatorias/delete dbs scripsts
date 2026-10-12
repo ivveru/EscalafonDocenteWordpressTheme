@@ -1,0 +1,49 @@
+Paso 1: Eliminar calificaciones y documentos de convocatoria
+Ejecuta estas consultas SQL en phpMyAdmin en el orden indicado:
+
+sql
+-- 1. Eliminar registros de la tabla de asignaciones (grupos)
+TRUNCATE TABLE wp_asignaciones_revision;
+
+-- 2. Eliminar documentos de convocatoria (conv_doc)
+DELETE FROM wp_posts WHERE post_type = 'conv_doc';
+
+-- 3. Eliminar metadatos asociados a documentos de convocatoria
+DELETE FROM wp_postmeta 
+WHERE post_id IN (SELECT ID FROM wp_posts WHERE post_type = 'conv_doc')
+OR meta_key IN ('documento_convocatoria_id', 'documento_user_document_id', 
+                'documento_estado_revision', 'documento_observaciones', 
+                'documento_revisor_id', 'documento_fecha_revision', 
+                'documento_user_id', 'documento_fecha_subida');
+
+-- 4. Eliminar documentos originales de profesores (user_document) - OPCIONAL
+-- ¡CUIDADO! Esto borra TODOS los documentos que los profesores han subido
+DELETE FROM wp_posts WHERE post_type = 'user_document';
+
+-- 5. Eliminar attachments (archivos PDF) - OPCIONAL
+-- ¡CUIDADO! Esto borra los archivos físicos referenciados
+DELETE FROM wp_posts WHERE post_type = 'attachment';
+Paso 2: Borrar solo las calificaciones (si quieres mantener los documentos)
+Si quieres mantener los documentos subidos por los profesores pero borrar las calificaciones:
+
+sql
+-- Borrar solo las calificaciones (estados y observaciones)
+DELETE FROM wp_postmeta 
+WHERE meta_key IN ('documento_estado_revision', 'documento_observaciones', 
+                   'documento_revisor_id', 'documento_fecha_revision');
+
+-- Resetear estados a pendiente en documentos de convocatoria
+UPDATE wp_postmeta SET meta_value = 'pendiente' 
+WHERE meta_key = 'documento_estado_revision';
+Paso 3: Verificar que quedó limpio
+Ejecuta estas consultas para verificar:
+
+sql
+-- Verificar que no hay asignaciones
+SELECT COUNT(*) FROM wp_asignaciones_revision;
+
+-- Verificar documentos de convocatoria
+SELECT COUNT(*) FROM wp_posts WHERE post_type = 'conv_doc';
+
+-- Verificar calificaciones existentes
+SELECT COUNT(*) FROM wp_postmeta WHERE meta_key = 'documento_estado_revision';
