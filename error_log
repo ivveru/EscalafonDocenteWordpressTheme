@@ -1,0 +1,4 @@
+[18-Feb-2026 03:51:04 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/rfcaxup892to/public_html/wp-content/themes/bellasartes/prueba-shortcode.php:5
+Stack trace:
+#0 {main}
+  thrown in /home/rfcaxup892to/public_html/wp-content/themes/bellasartes/prueba-shortcode.php on line 5
